@@ -4,7 +4,7 @@
 
 ## Why this comes first
 
-The [PRD](05-prd-lead-quality-lens.md) rests on six assumptions (its section 10). One of them, whether a default quality-adjusted view already exists, I can partly check by using the product. The rest need conversations.
+The [PRD](05-prd-lead-quality-lens.md) rests on six assumptions (its section 11). One of them, whether a default quality-adjusted view already exists, I can partly check by using the product. The rest need conversations.
 
 ## Hypotheses and what would falsify them
 
