@@ -2,7 +2,7 @@
 
 **Author:** Saksham · **Status:** concept for discussion · **As of:** 2026-11-04
 
-> This is an independent product concept written from public information. It is not Google's roadmap, I have no inside knowledge of Google's plans, and the name "Lead Quality Lens" is mine. Several assumptions below could be wrong; the ones I know about are listed in section 10 and tested in [07](07-interview-guide.md). I have not run user research for this document.
+> This is an independent product concept written from public information. It is not Google's roadmap, I have no inside knowledge of Google's plans, and the name "Lead Quality Lens" is mine. Several assumptions below could be wrong; the ones I know about are listed in section 11 and tested in [07](07-interview-guide.md). I have not run user research for this document.
 
 ## 1. Summary
 
@@ -99,7 +99,17 @@ A model may write the summary sentences, with one hard rule: **every number in t
 
 **Non-functional:** results update at least daily; no view claims precision the data cannot support; all thresholds are visible in the UI.
 
-## 7. Key decisions and tradeoffs
+## 7. Success metrics
+
+Design, sample-size reasoning and decision rules are in [6](06-metrics-and-experiment-plan.md). The measures:
+
+- **Primary, leading: evidence-backed action rate.** The share of Lens-active accounts that act on a flagged segment within 14 days of first seeing it.
+- **Primary, lagging: cost per qualified lead on resolved cohorts**, treatment versus control, read only on click cohorts older than the account's maturity point (bounded by the 63-day attribution limit).
+- **Activation:** the share of eligible accounts that complete Phase 0 (stage mapped, uploads healthy).
+- **Guardrails:** qualified lead volume per account must not fall versus control by more than a margin fixed before launch; total spend per account must not drop sharply (a sign of over-cutting); few actions taken during a learning period; and a low rate of "this looks wrong" feedback and summary-consistency failures.
+- **Baselines are unknown.** None exist yet. The first cohort establishes them, and targets are set from that before any launch.
+
+## 8. Key decisions and tradeoffs
 
 | Decision | Chose | Gave up | Why |
 |---|---|---|---|
@@ -110,7 +120,7 @@ A model may write the summary sentences, with one hard rule: **every number in t
 | Aggregation | Segment-level aggregates | Lead-level views | Avoids new privacy surface and matches existing reporting. |
 | Language | Templated, number-checked | Free-form generated text | Hallucinated figures in a decision tool would be a trust-destroying failure. |
 
-## 8. Risks and mitigations
+## 9. Risks and mitigations
 
 | Risk | Mitigation |
 |---|---|
@@ -123,13 +133,13 @@ A model may write the summary sentences, with one hard rule: **every number in t
 | **Hallucinated numbers in summaries** | Programmatic insertion and a consistency gate |
 | **Interference with learning** if users act too soon | Suggested-action copy references learning periods |
 
-## 9. Dependencies
+## 10. Dependencies
 
 - Stage data arriving via enhanced conversions for leads or offline import (Data Manager API since June 2026).
 - Conversion action categories being set correctly.
 - Reporting access by search term, asset, final URL and (Phase 2) channel.
 
-## 10. Open questions and assumptions that could sink this
+## 11. Open questions and assumptions that could sink this
 
 1. **Does a default quality-adjusted view already exist or is it planned?** (Most important. I could not confirm either way.)
 2. Do enough B2B accounts have *any* downstream stage data to make the Lens useful? If not, activation is the real product.
@@ -138,7 +148,7 @@ A model may write the summary sentences, with one hard rule: **every number in t
 5. Would advertisers act on suggestions, or only read them?
 6. Is "qualified" defined consistently enough to build on (P6)?
 
-## 11. Rollout and kill criteria
+## 12. Rollout and kill criteria
 
 1. **Validate** with interviews first ([07](07-interview-guide.md)).
 2. **Phase 0** to a small cohort of accounts with stage data; measure activation.
