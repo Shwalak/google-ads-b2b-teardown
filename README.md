@@ -39,7 +39,7 @@ Each claim is graded in [sources.md](docs/sources.md): **P** for Google's own pa
 
 ## About
 
-Written by Saksham, an AI and technical product manager, from the perspective of someone who has managed B2B Google Ads campaigns. No employer data or confidential information is used anywhere in this repo. The documents were drafted with Claude Code; the research questions, the pivot, the prioritization override and the judgments are mine to defend.
+Written by Saksham, an AI and technical product manager, from the perspective of someone who has managed B2B Google Ads campaigns. No employer data or confidential information is used anywhere in this repo. The research questions, the pivot, the prioritization override and the judgments are mine to defend.
 
 A related project: **ShipGate**, a launch-readiness evals tool. The PRD's approach to gating generated summaries comes from it.
 
